@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("loginController.do")
+@WebServlet("/loginController")
 public class loginController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,12 @@ public class loginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("Teste OK");
+		String login = req.getParameter("login");
+		String senha = req.getParameter("senha");
+		
+		System.out.println(login +" - "+ senha);
+		
+		resp.getWriter().print("<h1>Sucesso</h1>");
 	}
 	
 }
